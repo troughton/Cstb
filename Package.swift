@@ -55,6 +55,9 @@ let package = Package(
         .library(
             name: "stb_voxel_render",
             targets: ["stb_voxel_render"]),
+        .library(
+            name: "tinyexr",
+            targets: ["tinyexr"]),
     ],
     dependencies: [
     ],
@@ -109,6 +112,9 @@ let package = Package(
             dependencies: []),
         .target(
             name: "stb_voxel_render",
+            dependencies: []),
+        .target(
+            name: "tinyexr",
             dependencies: []),
     ]
 )
