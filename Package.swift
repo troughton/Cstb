@@ -8,9 +8,6 @@ let package = Package(
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
-            name: "stb",
-            targets: ["stb"]),
-        .library(
             name: "stb_c_lexer",
             targets: ["stb_c_lexer"]),
         .library(
@@ -26,8 +23,14 @@ let package = Package(
             name: "stb_dxt",
             targets: ["stb_dxt"]),
         .library(
+            name: "stb_easy_font",
+            targets: ["stb_easy_font"]),
+        .library(
             name: "stb_herringbone_wang_tile",
             targets: ["stb_herringbone_wang_tile"]),
+        .library(
+            name: "stb_hexwave",
+            targets: ["stb_hexwave"]),
         .library(
             name: "stb_image",
             targets: ["stb_image"]),
@@ -56,6 +59,9 @@ let package = Package(
             name: "stb_voxel_render",
             targets: ["stb_voxel_render"]),
         .library(
+            name: "miniz",
+            targets: ["miniz"]),
+        .library(
             name: "tinyexr",
             targets: ["tinyexr"]),
     ],
@@ -66,56 +72,81 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .target(
-            name: "stb",
-            dependencies: []),
-        .target(
             name: "stb_c_lexer",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_connected_components",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_divide",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_ds",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_dxt",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
+        .target(
+            name: "stb_easy_font",
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_herringbone_wang_tile",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
+        .target(
+            name: "stb_hexwave",
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_image",
             dependencies: [],
-            cSettings: [CSetting.define("STBI_NO_THREAD_LOCALS", to: "1", .when(platforms: [.iOS, .watchOS, .tvOS]))]),
+            cSettings: [.define("STBI_NO_THREAD_LOCALS", to: "1", .when(platforms: [.iOS, .watchOS, .tvOS])),
+                        .define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_image_resize",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_image_write",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_include",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_perlin",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_rect_pack",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_truetype",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_vorbis",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_voxel_render",
-            dependencies: []),
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
+        .target(
+            name: "miniz",
+            dependencies: [],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "tinyexr",
-            dependencies: []),
+            dependencies: ["miniz"],
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
     ]
 )
