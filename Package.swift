@@ -106,8 +106,7 @@ let package = Package(
         .target(
             name: "stb_image",
             dependencies: [],
-            cSettings: [.define("STBI_NO_THREAD_LOCALS", to: "1", .when(platforms: [.iOS, .watchOS, .tvOS])),
-                        .define("NDEBUG", .when(configuration: .release))]),
+            cSettings: [.define("NDEBUG", .when(configuration: .release))]),
         .target(
             name: "stb_image_resize",
             dependencies: [],
