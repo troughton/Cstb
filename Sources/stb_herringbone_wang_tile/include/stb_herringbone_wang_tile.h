@@ -154,8 +154,6 @@ int main(int argc, char **argv)
 #ifndef INCLUDE_STB_HWANG_H
 #define INCLUDE_STB_HWANG_H
 
-#include <string.h>
-
 #ifdef STB_HBWANG_STATIC
 #define STBHW_EXTERN static
 #else
@@ -367,8 +365,6 @@ STBHW_EXTERN const char *stbhw_get_last_error(void)
 //  using the same code, they are locked in sync and we don't
 //  need to try to do more sophisticated parsing of edge color
 //  markup or something.
-
-typedef struct stbhw__process stbhw__process;
 
 typedef void stbhw__process_rect(struct stbhw__process *p, int xpos, int ypos,
                                  int a, int b, int c, int d, int e, int f);
